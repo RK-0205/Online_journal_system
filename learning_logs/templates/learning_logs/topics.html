@@ -6,18 +6,18 @@
 
 {% block content %}
 
-<ul class="list-group border-bottom pb-2 mb-4">
-    {% for topic in topics %}
-    <li class="list-group-item border-0">
-        <a href="{% url 'learning_logs:topic' topic.id %}">
-            {{ topic.text }}
-        </a>
-    </li>
-    {% empty %}
-    <li class="list-group-item border-0">No topics have been added yet.</li>
-    {% endfor %}
-</ul>
 
-<a href="{% url 'learning_logs:new_topic' %}" class="btn btn-primary btn-sm mt-1"> Add a new topic </a> 
+    {% for topic in topics %}
+
+    <div class="card mb-3">
+        <a href="{% url 'learning_logs:topic' topic.id %}" class="card-header text-decoration-none">
+            <h5 >{{ topic.text }}</h5>
+        </a>
+    </div>
+    {% empty %}
+    <p>No topics have been added yet.</p>
+    {% endfor %}
+
+ <a href="{% url 'learning_logs:new_topic' %}" class="btn btn-primary btn-sm mt-1"> Add a new topic </a> 
 
 {% endblock content %}
